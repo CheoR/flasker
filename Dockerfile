@@ -9,7 +9,12 @@ WORKDIR ${PROJECT_DIR}
 
 RUN pipenv install --system --deploy
 
-CMD ["python", "./src/main.py"]
+# CMD ["python3", "./src/main.py"]
+# CMD ["flask"]
+# CMD ["flask", "--app", "./src", "run", "--debug"]
+# CMD ["flask", "--app", "./app", "run", "--debug"]
+# CMD ["python3", "src"]
+# CMD ["python3", "./src/__init__.py"]
 
 EXPOSE 5000
 
