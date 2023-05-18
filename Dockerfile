@@ -9,5 +9,7 @@ WORKDIR ${PROJECT_DIR}
 
 RUN pipenv install --system --deploy
 
-CMD ["python", "./main.py"]
+CMD ["python", "./src/main.py"]
+
+EXPOSE 5000
 
