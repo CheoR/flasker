@@ -1,6 +1,7 @@
 # FROM python:3-alpine3.10
 FROM python:3.10
 
+# ENV PATH $PATH:$HOME/.local/bin
 ENV PROJECT_DIR /app
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -17,9 +18,13 @@ COPY . /${PROJECT_DIR}
 
 WORKDIR ${PROJECT_DIR}
 
-RUN pip install pipenv && pipenv install --system --deploy --ignore-pipfile
+RUN pip install pipenv # --user
+RUN pipenv install --system --deploy --ignore-pipfile
 
 COPY . .
+
+# RUN useradd -m appuser
+# USER appuser
 
 EXPOSE 5000
 
